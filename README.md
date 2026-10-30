@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="assets/lirix-mark.svg" alt="Lirix connected-node mark" width="60">
+  <img src="assets/lirix-logo.png" alt="Language-agent node linked to search and database symbols" width="200">
 </p>
 
 <h1 align="center">Lirix</h1>
