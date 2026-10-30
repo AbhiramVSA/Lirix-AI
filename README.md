@@ -55,6 +55,10 @@ The repository has no `pyproject.toml`, `setup.py`, `requirements.txt`, or packa
 
 `agent_class.py` is not a usable general agent API. Treat each source file as a separate example. There is no shared package interface.
 
+## Documentation
+
+The project also lists the [Lirix documentation site](https://lirix-ai-documentation.vercel.app/).
+
 ## License
 
 The repository includes a [CC0 1.0 Universal](LICENSE) dedication.
