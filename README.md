@@ -1,21 +1,64 @@
-# Lirix
+<p align="center">
+  <img src="assets/lirix-logo.png" alt="Language-agent node linked to search and database symbols" width="200">
+</p>
 
-LirixAI is an open-source Python library designed to simplify the development of agentic and multi-agentic systems. It provides ready-to-use agent implementations by integrating frameworks like Web Search APIs, Supabase databases, and WebRTC, reducing the complexity of setting up backend agentic workflows.
+<h1 align="center">Lirix</h1>
 
-Our framework provides a **simple import and a few lines of code** to get a fully functional chatbot ready with minimal setup.
+<p align="center">Small Python experiments with language-model agents, search, and database queries.</p>
 
-### Real-World Application
-During a previous **hackathon**, we struggled to implement **WebRTC, Streamlit, and Pydantic** together due to the complexity of integration. Our framework eliminates such hurdles by providing direct implementations that work out of the box. 
+<p align="center">
+  <a href="#overview">Overview</a> ·
+  <a href="#source-modules">Source modules</a> ·
+  <a href="#run-the-dice-example">Run an example</a> ·
+  <a href="#limits">Limits</a> ·
+  <a href="#license">License</a>
+</p>
+
+## Overview
+
+This repository contains separate Python scripts. It does not contain an installable package or a dependency manifest with fixed versions.
+
+The scripts use `pydantic_ai`, `pydantic_settings`, `dotenv`, `aiohttp`, `asyncpg`, and `tavily`. Install compatible packages for the script that you use. The repository does not define a tested install command.
+
+## Source modules
+
+| File | What it contains |
+| --- | --- |
+| `src/lirix/DiceAgent.py` | A Groq-backed chat loop with a tool that returns a random value from one to six. |
+| `src/lirix/searchAgent.py` | A Groq-backed search agent that calls Tavily. |
+| `src/lirix/Wiki_Agent.py` | Wikipedia search and summary code with a local JSON cache. |
+| `src/lirix/SQL_Agent.py` | A Groq-backed query generator that sends SQL to PostgreSQL through `asyncpg`. |
+| `src/lirix/agent_class.py` | An incomplete wrapper scaffold. |
+| `src/lirix/load_api_key.py` | Settings for API keys and optional database values. |
+
+## Run the dice example
+
+Create a Python environment and install compatible dependencies for `DiceAgent.py`. The repository does not pin package versions.
+
+Set `GROQ_API_KEY` and `TAVILY_API_KEY` in the environment or in a root `.env` file. `Settings` requires both values when this script starts.
+
+From the repository root, run:
+
+```bash
+python src/lirix/DiceAgent.py
+```
+
+The script starts an interactive prompt. Enter `exit` to stop it. Runtime behavior was not tested for this README update.
+
+## Database example
+
+`SQL_Agent.py` also requires `SUPABASE_URL` and `SUPABASE_PASSWORD`. The source sends model-generated SQL to the database. It asks the model for `SELECT` statements, but it does not check the statement before execution. Use a database account with read-only access.
+
+## Limits
+
+The repository has no `pyproject.toml`, `setup.py`, `requirements.txt`, or package version metadata. The `test/` directory contains scripts, but the repository does not define a test command.
+
+`agent_class.py` is not a usable general agent API. Treat each source file as a separate example. There is no shared package interface.
 
 ## Documentation
-We are committed to providing **thorough documentation** to ensure seamless adoption. Stay tuned for updates!
-Link: https://lirix-ai-documentation.vercel.app/
 
----
+The project also lists the [Lirix documentation site](https://lirix-ai-documentation.vercel.app/).
 
-### Get Involved
-We welcome **contributors** to help improve and expand the Abstracted GenAI Framework. Feel free to open issues, suggest features, or contribute code!
+## License
 
- **Repository Coming Soon**
-
-
+The repository includes a [CC0 1.0 Universal](LICENSE) dedication.
